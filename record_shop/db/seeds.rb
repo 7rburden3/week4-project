@@ -39,3 +39,8 @@ record1.save
 record2.save
 record3.save
 record4.save
+
+# record3.delete
+# record4.delete
+
+# artist2.delete
