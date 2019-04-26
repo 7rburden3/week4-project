@@ -13,6 +13,10 @@ class Record
     @quantity = options['quantity'].to_i
   end
 
+  def album_title()
+    return "#{@title}"
+  end
+
   def save()
     sql = "INSERT INTO records
     (
@@ -49,6 +53,14 @@ class Record
     values = [@id]
     SqlRunner.run(sql, values)
   end
+
+  def get_artist()
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [@artist_id]
+    result = SqlRunner.run(sql, values)
+    return Artist.map_items(result).first()
+  end
+
 
   def self.delete_all()
     sql = "DELETE from records;"

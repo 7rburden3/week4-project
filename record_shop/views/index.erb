@@ -1,3 +1,6 @@
-<% @artists.each do |artist| %>
-<p>Artist: <%= artist.artist_name() %></p>
+
+
+<% @records.each do |record| %>
+<p>Album: <%= record.title() %></p>
+<p>Artist: <%= record.get_artist.name %></p>
 <% end %>

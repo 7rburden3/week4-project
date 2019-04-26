@@ -51,6 +51,17 @@ class Artist
     SqlRunner.run(sql, values)
   end
 
+  def albums()
+    sql = "SELECT albums.*
+    FROM albums
+    INNER JOIN artists
+    ON albums.artist_id = artists.id
+    WHERE artists.id = $1;"
+    values = [@id]
+    album_data = SqlRunner.run(sql, values)
+    return Album.map_items(album_data)
+  end
+
   def self.delete_all()
     sql = "DELETE FROM artists;"
     SqlRunner.run(sql)
