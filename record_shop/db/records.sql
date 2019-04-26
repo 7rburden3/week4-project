@@ -8,7 +8,7 @@ CREATE TABLE artists (
 
 CREATE TABLE records (
   id SERIAL4 PRIMARY KEY,
-  title VARCHAR(255)
+  title VARCHAR(255),
   quantity INT2,
   artist_id INT4 REFERENCES artists(id) ON DELETE CASCADE
 )
