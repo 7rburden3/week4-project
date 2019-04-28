@@ -21,7 +21,7 @@ post '/artists' do
   redirect to '/artists'
 end
 
-post 'artists/:id/delete' do
+post '/artists/:id/delete' do
   artist = Artist.find(params['id'])
   artist.delete
   redirect to '/artists'

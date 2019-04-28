@@ -1,0 +1,22 @@
+<h1>Add a new record to the inventory:</h1>
+
+<form action="/records" method="POST">
+  <label for="artist">Artist:</label>
+  <select name="artist_id" id="artist_id">
+    <% @artists.each do |artist| %>
+    <option value="<%= artist.id %>"><%= artist.name %></option>
+    <% end %>
+  </select>
+  <label for="title">Enter name of record to be added: </label>
+  <input type="text" name="title" id="title"/>
+  <select name="quantity" id="quantity">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+  </select>
+
+  <input type="submit" value="Add record"/>
+</form>

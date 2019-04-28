@@ -3,8 +3,7 @@ require_relative('./artist.rb')
 
 class Record
 
-  attr_reader :id, :title, :artist_id
-  attr_accessor :quantity
+  attr_accessor :id, :title, :artist_id, :quantity
 
   def initialize(options)
     @id = options['id'].to_i if options['id']

@@ -1,0 +1,7 @@
+<h1>Records</h1>
+
+<p><a href="/records/add">Add a new record</a></p>
+
+<% @records.each do |record| %>
+<p><%= record.title() %> <%= record.quantity() %></p>
+<% end %>
