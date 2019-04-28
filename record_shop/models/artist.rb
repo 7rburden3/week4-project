@@ -10,10 +10,7 @@ class Artist
     @name = options['name']
   end
 
-  # def artist_name()
-  #   return "#{@name}"
-  # end
-
+  
   def save()
     sql = "INSERT INTO artists
     (

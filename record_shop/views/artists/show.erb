@@ -1,3 +1,12 @@
 <h2><%= @artists.name %></h2>
 
+<% @records.each do |record| %>
+  <% if record.artist_id == @artists.id %>
+  Title: <%= record.title %>
+  Quantity: <input type="text" name="quantity" id="quantity" value="<%= record.quantity%>"/><input type="submit" value="Adjust inventory"/></p><br>
+  <% end %>
+<% end %>
+
+
+
 <form action="/artists/<%= @artists.id %>/delete" method="POST"><input type="submit" value="Delete"></form>

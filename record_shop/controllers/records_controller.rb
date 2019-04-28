@@ -2,7 +2,7 @@ require('sinatra')
 require('sinatra/contrib/all')
 require('pry-byebug')
 require_relative('../models/record.rb')
-# require_relative('../models/artist.rb')
+require_relative('../models/artist.rb')
 also_reload( '../models/*' )
 
 get '/records' do
