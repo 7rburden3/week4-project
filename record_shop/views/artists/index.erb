@@ -1,1 +1,5 @@
-<h1>Artists</h1>
+<h1>Artist</h1>
+
+<% @artists.each do |artist| %>
+<p><%= artist.artist_name() %> <%= artist.id() %></p>
+<% end %>

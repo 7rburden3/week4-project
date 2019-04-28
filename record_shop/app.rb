@@ -1,8 +1,10 @@
 require('sinatra')
 require('sinatra/contrib/all')
 require('pry-byebug')
-require_relative('models/artist')
-require_relative('models/record')
+# require_relative('models/artist')
+# require_relative('models/record')
+require_relative('controllers/artists_controller')
+require_relative('controllers/records_controller')
 also_reload('./models/*')
 
 # index

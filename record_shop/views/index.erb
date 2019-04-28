@@ -1,7 +1,7 @@
 <h1>Artists in Stock:</h1>
 
 <% @artists.each do |artist| %>
-<p><a href="/artists/index<%= artist.id %>"><%= artist.artist_name  %></a></p>
+<p><a href="/artists"><%= artist.artist_name  %></a></p>
   <% @records.each do |record| %>
     <% if record.artist_id == artist.id %>
     <p>Title: <%= record.title %></p>

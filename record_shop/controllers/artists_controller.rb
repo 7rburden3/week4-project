@@ -1,17 +1,18 @@
 require('sinatra')
 require('sinatra/contrib/all')
 require('pry-byebug')
-require_relative('models/artist')
+require_relative('../models/artist.rb')
+also_reload( '../models/*' )
 
 get '/artists' do
   @artists = Artist.all()
-  erb ( :"artists/add")
+  erb ( :"artists/index" )
 end
 
 get '/artists' do
   @artists = Artist.all()
   @records = Record.all()
-  erb ( :"artists/add")
+  erb ( :"artists/index")
 end
 
 post '/artists' do
