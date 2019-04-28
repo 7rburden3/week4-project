@@ -52,14 +52,14 @@ class Artist
   end
 
   def albums()
-    sql = "SELECT albums.*
-    FROM albums
+    sql = "SELECT records.*
+    FROM records
     INNER JOIN artists
-    ON albums.artist_id = artists.id
+    ON records.artist_id = artists.id
     WHERE artists.id = $1;"
     values = [@id]
-    album_data = SqlRunner.run(sql, values)
-    return Album.map_items(album_data)
+    record_data = SqlRunner.run(sql, values)
+    return Record.map_items(record_data)
   end
 
   def self.delete_all()

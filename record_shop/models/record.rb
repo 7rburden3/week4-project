@@ -79,7 +79,7 @@ class Record
   end
 
   def self.find(id)
-    sql = "SELECT * FROM students
+    sql = "SELECT * FROM records
     WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values).first
