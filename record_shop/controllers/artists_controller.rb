@@ -9,10 +9,10 @@ get '/artists' do
   erb ( :"artists/index" )
 end
 
-get '/artists' do
+get '/artists/add' do
   @artists = Artist.all()
   @records = Record.all()
-  erb ( :"artists/index")
+  erb ( :"artists/add")
 end
 
 post '/artists' do

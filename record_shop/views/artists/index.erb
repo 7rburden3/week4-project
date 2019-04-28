@@ -1,5 +1,7 @@
 <h1>Artist</h1>
 
+<p><a href="/artists/add">Add a new Artist</a></p>
+
 <% @artists.each do |artist| %>
 <p><%= artist.artist_name() %> <%= artist.id() %></p>
 <% end %>
