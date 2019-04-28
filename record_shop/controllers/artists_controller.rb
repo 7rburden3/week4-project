@@ -15,6 +15,11 @@ get '/artists/add' do
   erb ( :"artists/add")
 end
 
+get '/artists/:id' do
+  @artists = Artist.find(params['id'])
+  erb( :"artists/show" )
+end
+
 post '/artists' do
   artist = Artist.new(params)
   artist.save()

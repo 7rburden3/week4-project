@@ -10,9 +10,9 @@ class Artist
     @name = options['name']
   end
 
-  def artist_name()
-    return "#{@name}"
-  end
+  # def artist_name()
+  #   return "#{@name}"
+  # end
 
   def save()
     sql = "INSERT INTO artists
@@ -83,8 +83,8 @@ class Artist
     WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values).first
-    record = Record.new(result)
-    return record
+    artist = Artist.new(result)
+    return artist
   end
 
 

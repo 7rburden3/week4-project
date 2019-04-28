@@ -17,6 +17,12 @@ get '/records/add' do
   erb ( :"records/add")
 end
 
+post '/records/:id' do
+  record = Record.new(params)
+  record.update
+  redirect to '/records'
+end
+
 post '/records' do
   record = Record.new(params)
   record.save()

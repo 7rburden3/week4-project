@@ -9,14 +9,52 @@
   </select>
   <label for="title">Enter name of record to be added: </label>
   <input type="text" name="title" id="title"/>
+
   <select name="quantity" id="quantity">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
     <option value="5">5</option>
-
   </select>
 
   <input type="submit" value="Add record"/>
+</form>
+
+<h1>Add inventory to an existing record</h1>
+
+<form action="/records" method="POST">
+  <label for="artist">Artist:</label>
+  <select name="artist_id" id="artist_id">
+    <% @artists.each do |artist| %>
+    <option value="<%= artist.id %>"><%= artist.name %></option>
+    <% end %>
+  </select>
+  <select name="record_title" id="record_title">
+    <% @artists.each do |artist| %>
+    <% @records.each do |record| %>
+      <% if record.artist_id == artist.id %>
+        <option value="<%=record.title %>"><%=record.title %></option>
+      <% end %>
+      <% end %>
+      <% end %>
+  </select>
+
+
+  <input type="numeric" value="Adjust inventory"/>
+</form>
+
+<h1>Sale</h1>
+
+<form action="/records/<%= @record.id %>" method="POST">
+<% @artists.each do |artist| %>
+<p><%= artist.artist_name  %>
+  <% @records.each do |record| %>
+    <% if record.artist_id == artist.id %>
+    Title: <%= record.title %>
+    Quantity: <input type="text" name="quantity" id="quantity" value="<%= record.quantity%>"/><input type="submit" value="Adjust inventory"/></p><br>
+    <% end %>
+  <% end %>
+<% end %>
+
 </form>

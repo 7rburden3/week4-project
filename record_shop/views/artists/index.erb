@@ -3,15 +3,5 @@
 <p><a href="/artists/add">Add a new Artist</a></p>
 
 <% @artists.each do |artist| %>
-<p><%= artist.artist_name() %> <%= artist.id() %></p>
+<p><a href="/artists/<%= artist.id %>"/><%= artist.name %> </p>
 <% end %>
-
-<form action="/artists/<% artist.id %>/delete" method="POST">
-  <label for="name">Select name of Artist to be removed: </label>
-    <select name="artist_id">
-      <% for artist in @artists %>
-      <option value="<%= artist.id %>"><%= artist.artist_name %></option>
-      <% end %>
-  </select>
-  <input type="submit" value="Delete Artist"/>
-</form>
