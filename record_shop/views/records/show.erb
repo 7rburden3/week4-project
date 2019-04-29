@@ -1,0 +1,3 @@
+<h2><%= @records.title %></h2>
+<p>Quantity in stock: <%= @records.quantity %></p></br>
+<form action="/records/<%= @records.id %>/delete" method="POST"><input type="submit" value="Delete"></form>

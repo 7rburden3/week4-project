@@ -17,10 +17,21 @@ get '/records/new' do
   erb ( :"records/new")
 end
 
+get '/records/show/:id' do
+  @records = Record.find(params['id'])
+  erb ( :"records/show")
+end
+
 get '/records/:id' do
   @artists = Artist.all()
   @records = Record.find(params['id'])
   erb ( :"records/edit")
+end
+
+post '/records/show/delete' do
+  record = Record.find(params['id'])
+  record.delete
+  redirect to '/records'
 end
 
 post '/records/:id' do
