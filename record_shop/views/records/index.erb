@@ -1,7 +1,7 @@
 <h1>Records</h1>
 
-<p><a href="/records/add">Add a new record</a></p>
+<p><a href="/records/new">Add a new record</a></p>
 
 <% @records.each do |record| %>
-<p><%= record.title() %> <%= record.quantity() %></p>
+<p>Title: <%= record.title() %> Click on quantity to adjust stock: <a href="/records/<%= record.id %>"><%= record.quantity %></a></p><br>
 <% end %>

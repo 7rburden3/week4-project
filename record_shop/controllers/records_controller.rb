@@ -11,10 +11,16 @@ get '/records' do
   erb ( :"records/index" )
 end
 
-get '/records/add' do
+get '/records/new' do
   @artists = Artist.all()
   @records = Record.all()
-  erb ( :"records/add")
+  erb ( :"records/new")
+end
+
+get '/records/:id' do
+  @artists = Artist.all()
+  @records = Record.find(params['id'])
+  erb ( :"records/edit")
 end
 
 post '/records/:id' do
