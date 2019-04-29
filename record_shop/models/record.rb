@@ -60,6 +60,17 @@ class Record
     return Artist.map_items(result).first()
   end
 
+  def stock_level()
+    case @quantity
+    when 1..4
+      return "Stock level is low, reorder!"
+    when 5..9
+      return "Stock level is fine."
+    else
+      return "Stock level is to high, put on offer!"
+    end
+  end
+
 
   def self.delete_all()
     sql = "DELETE from records;"
