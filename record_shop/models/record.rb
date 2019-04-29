@@ -67,7 +67,7 @@ class Record
     when 5..9
       return "Stock level is fine."
     else
-      return "Stock level is to high, put on offer!"
+      return "Stock level is too high, put on offer!"
     end
   end
 

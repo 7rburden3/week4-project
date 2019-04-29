@@ -1,10 +1,15 @@
-<h1><h2><%= @records.title %></h2></h1>
+<h2><%= @records.title %></h2>
 
 <form action="/records/<%= @records.id %>" method="POST">
-  <input type="hidden" name="title" value="<%= @records.title %>">
+  <label for="title">Title</label>
+  <input type="text" name="title" value="<%= @records.title %>">
 
   <input type="hidden" name="artist_id" value="<%= @records.artist_id %>">
   <label for="quantity">Quantity</label>
   <input type="text" name="quantity" id="quantity" value="<%= @records.quantity %>">
   <input type="submit" value="Adjust Inventory"/>
 </form>
+
+<p><a href="/records/new">Add albums to artists</a></p>
+<p><a href="/index">Return to homepage</a></p>
+<p><a href="/records">Return to list of records</a></p>

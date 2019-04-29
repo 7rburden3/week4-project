@@ -1,6 +1,6 @@
 <h2><%= @artists.name %></h2>
 
-<form action="/artists" method="POST">
+
 
 
 <% @records.each do |record| %>
@@ -10,6 +10,5 @@
   <% end %>
 <% end %>
 
-</form>
-
-<form action="/artists/<%= @artists.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+<h1>WARNING! DELETING AN ARTIST WILL DELETE ALL RECORDS ASSOCIATED WITH THIS ARTIST!</h1>
+<a href="/artists/<%= @artists.id %>/destroy">Delete</a>

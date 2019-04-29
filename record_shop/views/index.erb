@@ -5,7 +5,7 @@
   <% @records.each do |record| %>
     <% if record.artist_id == artist.id %>
     <p>Title: <%= record.title %></p>
-    <p>Quantity: <a href="/edit/<%= record.id %>"><%= record.quantity %></a></p><br>
+    <p>Quantity: <a href="/records/<%= record.id %>"><%= record.quantity %></a></p><br>
     <% end %>
   <% end %>
 <% end %>

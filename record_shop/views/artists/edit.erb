@@ -1,0 +1,6 @@
+<h2><%= @artist.name %></h2>
+
+<form action="/artists/<%= @artist.id %>" method="POST">
+  <input type="text" name="name" value="<%= @artist.name %>">
+  <input type="submit" value="Edit Name"/>
+</form>

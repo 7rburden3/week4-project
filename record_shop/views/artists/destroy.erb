@@ -1,0 +1,6 @@
+<h2><%= @artist.name %></h2>
+
+<form action="/artists/index" method="GET"><input type="submit" name="index" value="Return to artists">
+
+</form>
+<form action="/artists/<%= @artist.id %>/delete" method="POST"><input type="submit" value="Delete"></form>

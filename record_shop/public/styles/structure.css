@@ -1,0 +1,55 @@
+body {
+  background: url('/images/record.jpeg');
+  background-repeat: repeat;
+  background-size: 100%;
+  color: white;
+}
+
+#container {
+  width: 90%;
+  background: rgba(0, 0, 0, 0.2);
+  margin: auto;
+}
+
+#hl{
+  width: 45%;
+  float: left;
+  padding: 10px;
+  text-align: left;
+  font-size: 30px;
+}
+
+#hm{
+  width: auto;
+  text-align: center;
+  font-size: 80px;
+  font-family: Apple Chancery, cursive;
+}
+
+#hr{
+  width: 45%;
+  float: right;
+  padding: 10px;
+  text-align: right;
+  font-size: 30px;
+}
+
+a:link{
+  color: white;
+  text-decoration: none;
+}
+
+a:visited{
+  color: white;
+  text-decoration: none;
+}
+
+a:hover{
+  color: magenta;
+  text-decoration: none;
+}
+
+a:active{
+  color: yellow;
+  text-decoration: none;
+}

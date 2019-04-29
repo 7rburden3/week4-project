@@ -3,5 +3,5 @@
 <p><a href="/artists/new">Add a new Artist</a></p>
 
 <% @artists.each do |artist| %>
-<p><a href="/artists/<%= artist.id %>"/><%= artist.name %> </p>
+<p><a href="/artists/<%= artist.id %>"/><%= artist.name %></a> <a href="/artists/<%= artist.id %>/edit">Edit</a></p>
 <% end %>

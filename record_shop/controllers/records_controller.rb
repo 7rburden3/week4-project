@@ -5,6 +5,10 @@ require_relative('../models/record.rb')
 require_relative('../models/artist.rb')
 also_reload( '../models/*' )
 
+get '/index' do
+  erb ( :index )
+end
+
 get '/records' do
   @records = Record.all()
   @artists = Artist.all()
