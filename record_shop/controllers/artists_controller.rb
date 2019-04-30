@@ -3,11 +3,8 @@ require('sinatra/contrib/all')
 require('pry-byebug')
 require_relative('../models/artist.rb')
 require_relative('../models/record.rb')
+require_relative('../models/genre.rb')
 also_reload( '../models/*' )
-
-get '/index' do
-  erb ( :index )
-end
 
 get '/artists' do
   @artists = Artist.all()
@@ -17,12 +14,14 @@ end
 get '/artists/new' do
   @artists = Artist.all()
   @records = Record.all()
+  @genres = Genre.all()
   erb ( :"artists/new")
 end
 
 get '/artists/:id' do
   @artists = Artist.find(params['id'])
   @records = Record.all()
+  @genres = Genre.all()
   erb( :"artists/show" )
 end
 

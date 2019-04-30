@@ -9,8 +9,12 @@
   </select>
   <label for="title">Enter name of record to be added: </label>
   <input type="text" name="title" id="title"/>
-  <label for="genre">Enter genre of record to be added: </label>
-  <input type="text" name="genre" id="genre"/>
+  <label for="genre">Genre:</label>
+  <select name="genre_id" id="genre_id">
+    <% @genres.each do |genre| %>
+    <option value="<%= genre.id %>"><%= genre.genre %></option>
+    <% end %>
+  </select>
 
   <select name="quantity" id="quantity">
     <option value="1">1</option>

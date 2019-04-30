@@ -5,7 +5,13 @@
   <% @records.each do |record| %>
     <% if record.artist_id == artist.id %>
     <p>Title: <%= record.title %></p>
-    <p>Quantity: <a href="/records/<%= record.id %>"><%= record.quantity %></a></p><br>
+    <p>Quantity: <a href="/records/<%= record.id %>"><%= record.quantity %></a></p>
+    <% @genres.each do |genre| %>
+    <% if record.genre_id == genre.id %>
+    <p>Genre: <%= genre.genre %></p>
+    <% end %>
+    <br>
+    <% end %>
     <% end %>
   <% end %>
 <% end %>

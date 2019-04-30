@@ -1,14 +1,17 @@
 <h2><%= @artists.name %></h2>
 
-
-
-
 <% @records.each do |record| %>
   <% if record.artist_id == @artists.id %>
   <p>Title: <%= record.title %>
   Quantity: <%= record.quantity%>
+<% @genres.each do |genre| %>
+  <% if record.genre_id == genre.id %>
+  <p>Genre: <%= genre.genre %></p>
+  <% end %>
   <% end %>
 <% end %>
+<% end %>
+
 
 <h1>WARNING! DELETING AN ARTIST WILL DELETE ALL RECORDS ASSOCIATED WITH THIS ARTIST!</h1>
 <a href="/artists/<%= @artists.id %>/destroy">Delete</a>

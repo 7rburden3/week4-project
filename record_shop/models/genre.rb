@@ -1,73 +1,68 @@
 require_relative('../db/sql_runner')
 require_relative('./record.rb')
 
-class Artist
+class Genre
 
-  attr_accessor :name, :id
+  attr_accessor :genre, :id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @name = options['name']
+    @genre = options['genre']
   end
 
 
   def save()
-    sql = "INSERT INTO artists
+    sql = "INSERT INTO genres
     (
-    name
+    genre
     )
     VALUES
     (
     $1
     )
     RETURNING id"
-    values = [@name]
+    values = [@genre]
     result = SqlRunner.run(sql, values)
     id = result.first['id']
     @id = id
   end
 
   def update()
-    sql = "UPDATE artists
+    sql = "UPDATE genres
     SET
-    name
+    genre
      =
       $1
     WHERE id = $2"
-    values = [@name, @id]
+    values = [@genre, @id]
     SqlRunner.run(sql, values)
   end
 
   def delete()
-    sql = "DELETE FROM artists
+    sql = "DELETE FROM genres
     WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
 
-  def self.delete_all()
-    sql = "DELETE FROM artists;"
-    SqlRunner.run(sql)
-  end
-
   def self.all()
-    sql = "SELECT * FROM artists"
-    artist_data = SqlRunner.run(sql)
-    artists = map_items(artist_data)
-    return artists
+    sql = "SELECT * FROM genres"
+    genre_data = SqlRunner.run(sql)
+    genres = map_items(genre_data)
+    return genres
   end
 
-  def self.map_items(artist_data)
-    return artist_data.map { |artist| Artist.new(artist) }
+  def self.map_items(genre_data)
+    return genre_data.map { |genre| Genre.new(genre) }
   end
 
   def self.find(id)
-    sql = "SELECT * FROM artists
+    sql = "SELECT * FROM genres
     WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values).first
-    artist = Artist.new(result)
-    return artist
+    genre = Genre.new(result)
+    return genre
   end
 
 

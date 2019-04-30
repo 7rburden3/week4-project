@@ -1,0 +1,18 @@
+<h1>Add a new Genre to the database.</h1>
+
+<form action="/genres" method="POST">
+  <label for="genre">Enter Genre to be added: </label>
+  <input type="text" name="genre" id="genre"/>
+  <input type="submit" value="Add Genre"/>
+</form>
+
+<% @genre.each do |genre| %>
+<p><%= genre.genre %>
+  <form action="/genres/<%= genre.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+<% end %>
+</p>
+
+
+<p><a href="/records/new">Add albums to artists</a></p>
+<p><a href="/index">Return to homepage</a></p>
+<p><a href="/artists">Return to list of artists</a></p>
