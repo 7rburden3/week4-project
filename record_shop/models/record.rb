@@ -3,13 +3,14 @@ require_relative('./artist.rb')
 
 class Record
 
-  attr_accessor :id, :title, :artist_id, :quantity
+  attr_accessor :id, :title, :artist_id, :quantity, :genre
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @title = options['title']
     @artist_id = options['artist_id'].to_i
     @quantity = options['quantity'].to_i
+    @genre = options['genre']
   end
 
   def album_title()
@@ -21,14 +22,15 @@ class Record
     (
       title,
       artist_id,
-      quantity
+      quantity,
+      genre
     )
     VALUES
     (
-      $1, $2, $3
+      $1, $2, $3, $4
     )
     RETURNING id"
-    values = [@title, @artist_id, @quantity]
+    values = [@title, @artist_id, @quantity, @genre]
     result = SqlRunner.run(sql, values)
     id = result.first['id']
     @id = id
@@ -37,13 +39,13 @@ class Record
   def update()
     sql = "UPDATE records SET
     (
-    title, artist_id, quantity
+    title, artist_id, quantity, genre
     ) =
     (
-    $1, $2, $3
+    $1, $2, $3, $4
     )
     WHERE id = $4;"
-    values = [@title, @artist_id, @quantity, @id]
+    values = [@title, @artist_id, @quantity, @genre, @id]
     SqlRunner.run(sql, values)
   end
 

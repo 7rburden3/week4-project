@@ -14,25 +14,29 @@ artist2.save
 record1 = Record.new({
   'title' => '2112',
   'artist_id' => artist1.id,
-  'quantity' => 5
+  'quantity' => 5,
+  'genre' => 'rock'
   })
 
 record2 = Record.new({
   'title' => 'Moving Pictures',
   'artist_id' => artist1.id,
-  'quantity' => 6
+  'quantity' => 6,
+  'genre' => 'rock'
   })
 
 record3 = Record.new({
   'title' => 'Back in Black',
   'artist_id' => artist2.id,
-  'quantity' => 3
+  'quantity' => 3,
+  'genre' => 'rock'
   })
 
 record4 = Record.new({
   'title' => 'For Those About to Rock',
   'artist_id' => artist2.id,
-  'quantity' => 7
+  'quantity' => 7,
+  'genre' => 'rock'
   })
 
 record1.save

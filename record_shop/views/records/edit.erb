@@ -7,9 +7,9 @@
   <input type="hidden" name="artist_id" value="<%= @records.artist_id %>">
   <label for="quantity">Quantity</label>
   <input type="text" name="quantity" id="quantity" value="<%= @records.quantity %>">
+  <label for="genre">Genre</label>
+  <input type="text" name="genre" id="genre" value="<%= @records.genre %>">
+
+
   <input type="submit" value="Adjust Inventory"/>
 </form>
-
-<p><a href="/records/new">Add albums to artists</a></p>
-<p><a href="/index">Return to homepage</a></p>
-<p><a href="/records">Return to list of records</a></p>
