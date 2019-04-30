@@ -5,14 +5,26 @@
   <input type="text" name="genre" id="genre"/>
   <input type="submit" value="Add Genre"/>
 </form>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Genre</th>
+      <th></th>
+    </tr>
+  </thead>
+<tbody>
 
 <% @genre.each do |genre| %>
-<p><%= genre.genre %>
-  <form action="/genres/<%= genre.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+
+  <tr>
+  <td><%= genre.genre %></td>
+    <td><form action="/genres/<%= genre.id %>/delete" method="POST"><input type="submit" value="Delete"></form></td>
+    </tr>
+
 <% end %>
-</p>
+</tbody>
+</table>
 
 
-<p><a href="/records/new">Add albums to artists</a></p>
-<p><a href="/index">Return to homepage</a></p>
-<p><a href="/artists">Return to list of artists</a></p>
+<br>

@@ -1,11 +1,34 @@
 <h1>Records</h1>
 
-<p><a href="/records/new">Add a new record</a></p>
+<p><a href="/records/new"><button>Add a new record</button></a></p>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Artist</th>
+      <th>Title</th>
+      <th>Stock</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+
 <% @artists.each do |artist| %>
-<p><%= artist.name  %></p>
+
   <% @records.each do |record| %>
+<tr>
+
+
     <% if record.artist_id == artist.id %>
-    <p>Title: <a href="/records/show/<%= record.id %>"><%= record.title() %></a> Click on quantity to adjust stock: <a href="/records/<%= record.id %>"><%= record.quantity %></a> Stock level: <%= record.stock_level %></p><br>
+    <td><%= artist.name  %></td>
+    <td><a href="/records/show/<%= record.id %>"><%= record.title() %></a></td>
+    <td><a href="/records/<%= record.id %>"><%= record.quantity %></a></td>
+    <td><%= record.stock_level %></td>
+    </tr>
     <% end %>
   <% end %>
 <% end %>
+</tbody>
+</table>

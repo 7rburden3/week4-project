@@ -40,13 +40,13 @@ class Record
   def update()
     sql = "UPDATE records SET
     (
-    title, artist_id, quantity, genre_id
+    title, artist_id, quantity
     ) =
     (
-    $1, $2, $3, $4
+    $1, $2, $3
     )
-    WHERE id = $5;"
-    values = [@title, @artist_id, @quantity, @genre_id, @id]
+    WHERE id = $4;"
+    values = [@title, @artist_id, @quantity, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -68,7 +68,7 @@ class Record
     when 1..4
       return "Stock level is low, reorder!"
     when 5..9
-      return "Stock level is fine."
+      return "Stock level is okay."
     else
       return "Stock level is too high, put on offer!"
     end

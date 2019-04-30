@@ -13,16 +13,26 @@
       <h3 id="hl"><a href="/artists">Artists</a></h3>
       <h3 id="hml"><a href="/genres">Genres</a></h3>
       <h3 id="hr"><a href="/records">Records</a></h3>
-      <h3 id="hm">RESTful Records</h3>
+
+
     </header>
 <main>
   <nav>
-
+      <h3 id="hm">RESTful Records</h3>
   </nav>
   <section id="content">
   <%= yield %>
   </section>
   </main>
+  <footer>
+    </br>
+    <ul>
+      <li><a href="/records/new">Add records to artists</a></li>
+      <li><a href="/index">Return to homepage</a></li>
+      <li><a href="/artists">Return to list of artists</a></li>
+    </ul>
+  <p>&copy; Ralph Burden 2019</p>
+  </footer>
   </div><!--container-->
 </body>
 </html>

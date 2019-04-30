@@ -6,10 +6,6 @@ require_relative('../models/artist.rb')
 require_relative('../models/genre.rb')
 also_reload( '../models/*' )
 
-# get '/index' do
-#   erb ( :index )
-# end
-
 get '/records' do
   @records = Record.all()
   @artists = Artist.all()
@@ -31,6 +27,7 @@ end
 get '/records/:id' do
   @artists = Artist.all()
   @records = Record.find(params['id'])
+  @genres= Genre.all()
   erb ( :"records/edit")
 end
 
