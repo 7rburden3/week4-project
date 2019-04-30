@@ -1,6 +1,7 @@
-<h2><%= @artist.name %></h2>
+<h1><a href="/artists"><%= @artist.name %></a></h1>
+<p>Are you sure? Click on the artist's name to go back.</p>
 
-<form action="/artists/index" method="GET"><input type="submit" name="index" value="Return to artists">
-
+<br>
+<br>
+<form action="/artists/<%= @artist.id %>/delete" method="POST"><input class="flash" type="submit" value="Delete">
 </form>
-<form action="/artists/<%= @artist.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
