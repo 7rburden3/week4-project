@@ -3,7 +3,7 @@
 Create an app to demonstrate OOP using Ruby, Test Driven Development, Web Programming (REST, MVC) and interaction with a PostgreSQL database.
 The app is to be created using only HTML/CSS, Ruby, Sinatra and PostgreSQL.
 
-##Brief - Record Store
+## Brief - Record Store
 
 The owner of a Record Store wants an app which will help to keep on top of the store inventory. This is not an app that customers will see, but will be used to check stock levels and see what needs to be ordered soon.
 
