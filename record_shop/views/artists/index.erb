@@ -13,12 +13,12 @@
   <tbody>
 
 
-<% @artists.each do |artist| %>
-<tr>
-<td><a href="/artists/<%= artist.id %>"/><%= artist.name %></a></td>
-<td> <a href="/artists/<%= artist.id %>/edit">Edit</a></td>
-</tr>
-<% end %>
+    <% @artists.each do |artist| %>
+    <tr>
+      <td><a href="/artists/<%= artist.id %>"/><%= artist.name %></a></td>
+      <td> <a href="/artists/<%= artist.id %>/edit">Edit</a></td>
+    </tr>
+    <% end %>
   </tbody>
 </table>
 

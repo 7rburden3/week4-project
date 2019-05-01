@@ -14,11 +14,11 @@ class Artist
   def save()
     sql = "INSERT INTO artists
     (
-    name
+      name
     )
     VALUES
     (
-    $1
+      $1
     )
     RETURNING id"
     values = [@name]
@@ -31,8 +31,8 @@ class Artist
     sql = "UPDATE artists
     SET
     name
-     =
-      $1
+    =
+    $1
     WHERE id = $2"
     values = [@name, @id]
     SqlRunner.run(sql, values)

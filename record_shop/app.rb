@@ -16,8 +16,3 @@ get '/index' do
   @genres = Genre.all()
   erb( :index )
 end
-
-# get '/index/:id' do
-#   @records = Record.find(params['id'])
-#   erb( :show )
-# end

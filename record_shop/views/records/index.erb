@@ -14,21 +14,21 @@
   </thead>
   <tbody>
 
+    
+    <% @artists.each do |artist| %>
 
-<% @artists.each do |artist| %>
-
-  <% @records.each do |record| %>
-<tr>
+    <% @records.each do |record| %>
+    <tr>
 
 
-    <% if record.artist_id == artist.id %>
-    <td><%= artist.name  %></td>
-    <td><a href="/records/show/<%= record.id %>"><%= record.title() %></a></td>
-    <td><a href="/records/<%= record.id %>"><%= record.quantity %></a></td>
-    <td><%= record.stock_level %></td>
+      <% if record.artist_id == artist.id %>
+      <td><%= artist.name  %></td>
+      <td><a href="/records/show/<%= record.id %>"><%= record.title() %></a></td>
+      <td><a href="/records/<%= record.id %>"><%= record.quantity %></a></td>
+      <td><%= record.stock_level %></td>
     </tr>
     <% end %>
-  <% end %>
-<% end %>
-</tbody>
+    <% end %>
+    <% end %>
+  </tbody>
 </table>

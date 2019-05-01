@@ -2,29 +2,29 @@
 
 <table>
   <tr>
-  <th>Artist
-    <font size ="-1">(click on name to add/edit Artists)</font></th>
-  <th>Record</th>
-  <th>Stock
-    <font size ="-1">(click on stock to adjust inventory)</font></th>
-  <th>Genre</th>
-  </tr>
+    <th>Artist
+      <font size ="-1">(click on name to add/edit Artists)</font></th>
+      <th>Record</th>
+      <th>Stock
+        <font size ="-1">(click on stock to adjust inventory)</font></th>
+        <th>Genre</th>
+      </tr>
 
 
-<% @artists.each do |artist| %>
-  <% @records.each do |record| %>
-    <% if record.artist_id == artist.id %>
-    <tr>
-    <td><a href="/artists"><%= artist.name %></td>
-    <td><%= record.title %></td>
-    <td><a href="/records/<%= record.id %>"><%= record.quantity %></a></td>
-    <% @genres.each do |genre| %>
-    <% if record.genre_id == genre.id %>
-    <td><%= genre.genre %></td>
-    <% end %>
-    <% end %>
-    <% end %>
-  <% end %>
-<% end %>
-  </tr>
-</table>
+      <% @artists.each do |artist| %>
+      <% @records.each do |record| %>
+      <% if record.artist_id == artist.id %>
+      <tr>
+        <td><a href="/artists"><%= artist.name %></td>
+          <td><%= record.title %></td>
+          <td><a href="/records/<%= record.id %>"><%= record.quantity %></a></td>
+          <% @genres.each do |genre| %>
+          <% if record.genre_id == genre.id %>
+          <td><%= genre.genre %></td>
+          <% end %>
+          <% end %>
+          <% end %>
+          <% end %>
+          <% end %>
+        </tr>
+      </table>

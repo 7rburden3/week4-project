@@ -14,11 +14,11 @@ class Genre
   def save()
     sql = "INSERT INTO genres
     (
-    genre
+      genre
     )
     VALUES
     (
-    $1
+      $1
     )
     RETURNING id"
     values = [@genre]
@@ -31,8 +31,8 @@ class Genre
     sql = "UPDATE genres
     SET
     genre
-     =
-      $1
+    =
+    $1
     WHERE id = $2"
     values = [@genre, @id]
     SqlRunner.run(sql, values)

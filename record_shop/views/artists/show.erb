@@ -12,18 +12,18 @@
   </thead>
 
   <tbody>
-<% @records.each do |record| %>
-  <% if record.artist_id == @artists.id %>
-  <tr>
-  <td><%= record.title %></td>
-  <td><%= record.quantity%></td>
-<% @genres.each do |genre| %>
-  <% if record.genre_id == genre.id %>
-  <td><%= genre.genre %></td>
-  </tr>
-  <% end %>
-  <% end %>
-<% end %>
-<% end %>
+    <% @records.each do |record| %>
+    <% if record.artist_id == @artists.id %>
+    <tr>
+      <td><%= record.title %></td>
+      <td><%= record.quantity%></td>
+      <% @genres.each do |genre| %>
+      <% if record.genre_id == genre.id %>
+      <td><%= genre.genre %></td>
+    </tr>
+    <% end %>
+    <% end %>
+    <% end %>
+    <% end %>
   </tbody>
 </table>

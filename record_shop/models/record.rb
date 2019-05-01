@@ -14,7 +14,7 @@ class Record
     @genre_id = options['genre_id'].to_i
   end
 
-  def album_title()
+  def record_title()
     return "#{@title}"
   end
 
@@ -40,64 +40,64 @@ class Record
   def update()
     sql = "UPDATE records SET
     (
-    title, artist_id, quantity
-    ) =
-    (
-    $1, $2, $3
-    )
-    WHERE id = $4;"
-    values = [@title, @artist_id, @quantity, @id]
-    SqlRunner.run(sql, values)
-  end
-
-  def delete()
-    sql = "DELETE FROM records WHERE id = $1;"
-    values = [@id]
-    SqlRunner.run(sql, values)
-  end
-
-  def get_artist()
-    sql = "SELECT * FROM artists WHERE id = $1"
-    values = [@artist_id]
-    result = SqlRunner.run(sql, values)
-    return Artist.map_items(result).first()
-  end
-
-  def stock_level()
-    case @quantity
-    when 1..4
-      return "Stock level is low, reorder!"
-    when 5..9
-      return "Stock level is okay."
-    else
-      return "Stock level is too high, put on offer!"
+      title, artist_id, quantity
+      ) =
+      (
+        $1, $2, $3
+      )
+      WHERE id = $4;"
+      values = [@title, @artist_id, @quantity, @id]
+      SqlRunner.run(sql, values)
     end
-  end
+
+    def delete()
+      sql = "DELETE FROM records WHERE id = $1;"
+      values = [@id]
+      SqlRunner.run(sql, values)
+    end
+
+    def get_artist()
+      sql = "SELECT * FROM artists WHERE id = $1"
+      values = [@artist_id]
+      result = SqlRunner.run(sql, values)
+      return Artist.map_items(result).first()
+    end
+
+    def stock_level()
+      case @quantity
+      when 1..4
+        return "Stock level is low, reorder!"
+      when 5..9
+        return "Stock level is okay."
+      else
+        return "Stock level is too high, put on offer!"
+      end
+    end
 
 
-  def self.delete_all()
-    sql = "DELETE from records;"
-    SqlRunner.run(sql)
-  end
+    def self.delete_all()
+      sql = "DELETE from records;"
+      SqlRunner.run(sql)
+    end
 
-  def self.all()
-    sql = "SELECT * FROM records"
-    record_data = SqlRunner.run(sql)
-    records = map_items(record_data)
-    return records
-  end
+    def self.all()
+      sql = "SELECT * FROM records"
+      record_data = SqlRunner.run(sql)
+      records = map_items(record_data)
+      return records
+    end
 
-  def self.map_items(record_data)
-    return record_data.map { |record| Record.new(record) }
-  end
+    def self.map_items(record_data)
+      return record_data.map { |record| Record.new(record) }
+    end
 
-  def self.find(id)
-    sql = "SELECT * FROM records
-    WHERE id = $1"
-    values = [id]
-    result = SqlRunner.run(sql, values).first
-    record = Record.new(result)
-    return record
-  end
+    def self.find(id)
+      sql = "SELECT * FROM records
+      WHERE id = $1"
+      values = [id]
+      result = SqlRunner.run(sql, values).first
+      record = Record.new(result)
+      return record
+    end
 
-end # end class
+  end # end class
