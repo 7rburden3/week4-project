@@ -24,12 +24,20 @@ get '/records/show/:id' do
   erb ( :"records/show")
 end
 
+get '/records/order' do
+  @artists = Artist.all()
+  @records = Record.all_ascending()
+  @genres= Genre.all()
+  erb ( :"records/index" )
+end
+
 get '/records/:id' do
   @artists = Artist.all()
   @records = Record.find(params['id'])
   @genres= Genre.all()
   erb ( :"records/edit")
 end
+
 
 post '/records/show/delete' do
   record = Record.find(params['id'])

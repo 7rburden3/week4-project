@@ -87,6 +87,14 @@ class Record
       return records
     end
 
+    def self.all_ascending()
+      sql = "SELECT * FROM records
+      ORDER BY quantity ASC;"
+      record_data = SqlRunner.run(sql)
+      records = map_items(record_data)
+      return records
+    end
+
     def self.map_items(record_data)
       return record_data.map { |record| Record.new(record) }
     end
