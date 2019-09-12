@@ -4,7 +4,7 @@ class SqlRunner
 
   def self.run( sql, values = [] )
     begin
-      db = PG.connect({ dbname: 'record_shop', password: 'a6c475eab4', host: 'localhost' })
+      db = PG.connect({ dbname: 'record_shop', password: '**********', host: 'localhost' })
       db.prepare("query", sql)
       result = db.exec_prepared( "query", values )
     ensure
