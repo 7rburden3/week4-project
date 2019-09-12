@@ -17,8 +17,6 @@
 
     <% @records.each do |record| %>
     <tr>
-
-
       <td><%= record.get_artist.name  %></td>
       <td><a href="/records/show/<%= record.id %>"><%= record.title() %></a></td>
       <td><a href="/records/<%= record.id %>"><%= record.quantity %></a></td>
